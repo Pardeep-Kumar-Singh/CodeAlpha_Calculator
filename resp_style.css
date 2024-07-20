@@ -1,0 +1,22 @@
+@media (max-width: 448px) {
+  .main {
+    height: auto;
+  }
+  .main .container {
+    border-radius: 0;
+    height: 100%;
+  }
+  .main .container input{
+    width: 340px;
+    height: 180px;
+    font-size: 80px;
+    padding-top: 100px;
+  }
+  .container .button {
+    height: 80px;
+    width: 80px;
+  }
+  .main .container #btn {
+    width: 170px;
+  }
+}
