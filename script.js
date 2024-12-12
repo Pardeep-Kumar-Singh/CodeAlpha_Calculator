@@ -6,7 +6,7 @@ Array.from(buttons).forEach((button) => {
     if (e.target.innerHTML == "=") {
       try {
         if (string.includes("/0")) {
-          throw new Error("Cannot divide by zero");
+          alert("Cannot divide by zero");
         }
         string = eval(string);
         document.querySelector("input").value = string;
