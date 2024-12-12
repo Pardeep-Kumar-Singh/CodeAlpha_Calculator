@@ -4,15 +4,18 @@ let buttons = document.querySelectorAll(".button");
 Array.from(buttons).forEach((button) => {
   button.addEventListener("click", (e) => {
     if (e.target.innerHTML == "=") {
-      try {
-        if (string.includes("/0")) {
-          alert("Cannot divide by zero");
+      if (string.includes("/0")) {
+        alert("Cannot divide by zero!");
+        string = ""; // Reset the input string
+        document.querySelector("input").value = string; // Clear the input field
+      } else {
+        try {
+          string = eval(string);
+          document.querySelector("input").value = string;
+        } catch (error) {
+          document.querySelector("input").value = "Error";
+          string = "";
         }
-        string = eval(string);
-        document.querySelector("input").value = string;
-      } catch (error) {
-        document.querySelector("input").value = error.message;
-        string = "";
       }
     } else if (e.target.innerHTML == "C") {
       string = "";
@@ -20,12 +23,15 @@ Array.from(buttons).forEach((button) => {
     } else if (e.target.innerHTML == "√") {
       try {
         if (parseFloat(string) < 0) {
-          throw new Error("Invalid input for square root");
+          alert("Invalid input for square root!");
+          string = ""; // Reset the input string
+          document.querySelector("input").value = string; // Clear the input field
+        } else {
+          string = Math.sqrt(string);
+          document.querySelector("input").value = string;
         }
-        string = Math.sqrt(string);
-        document.querySelector("input").value = string;
       } catch (error) {
-        document.querySelector("input").value = error.message;
+        document.querySelector("input").value = "Error";
         string = "";
       }
     } else {
